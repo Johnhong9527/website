@@ -156,13 +156,60 @@ background: rgba(0, 0, 0, 0.1);
 
 /*page-nav*/
 .page-nav {
+  opacity: 1;
+}
+@media (max-width: 750px) {
+  .page-nav {
+    display: none;
+    opacity: 0;
+  }
+}
+.page-nav ul {
   position: absolute;
   bottom: 5vh;
   width: 100%;
   z-index: 5;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-nav ul li {
+  margin: 0 5%;
+  position: relative;
+}
+
+.page-nav ul li:before {
+  content: "";
+  width: 0;
+  height: 2px;
+  border-bottom: 2px solid white;
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  transition: all .3s linear;
+}
+
+.page-nav ul li:hover:before {
+  width: 110%;
 }
 
 .page-nav img {
   width: 0;
   height: 0;
+}
+
+.page-nav a {
+  text-decoration: none;
+  color: white;
+}
+
+/*page-container*/
+.page-container{
+  color: #979797;
+}
+.page-container div{
+  line-height: 40px;
+  padding-left: 15px;
 }
