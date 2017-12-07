@@ -7,6 +7,7 @@ function init() {
     var scrollTop = document.documentElement.scrollTop;
     if (tru && clientHeight + DOMTop.offsetTop + DOMTop.clientHeight < clientHeight + scrollTop) {
       console.log('发现元素')
+      alert('触发条件！')
       DOMTop.setAttribute('class', 'page-nav top');
       tru = false
     }
