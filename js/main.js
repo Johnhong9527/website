@@ -1,13 +1,12 @@
 function init() {
+  alert('123');
   var tru = true;
   var DOMTop = document.getElementById('nav');
-  console.log(DOMTop.clientHeight)
   document.addEventListener('scroll', function () {
     var clientHeight = document.documentElement.clientHeight;
     var scrollTop = document.documentElement.scrollTop;
     if (tru && clientHeight + DOMTop.offsetTop + DOMTop.clientHeight < clientHeight + scrollTop) {
       console.log('发现元素')
-      alert('触发条件！')
       DOMTop.setAttribute('class', 'page-nav top');
       tru = false
     }
