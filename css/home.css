@@ -306,4 +306,5 @@ background: rgba(0, 0, 0, 0.1);
   background-color: #888888;
   z-index: 999;
   top:15%;
+  display: none;
 }
