@@ -5,7 +5,8 @@ function init() {
   var cLog = document.getElementById('cLog');
   document.addEventListener('scroll', function () {
     var clientHeight = document.documentElement.clientHeight;
-    var scrollTop = document.documentElement.scrollTop;
+    var scrollTop = document.body.scrollTop;
+    // console.log(scrollTop.scrollTop)
     cLog.innerHTML = `DOMTop.offsetTop:${DOMTop.offsetTop};<br/>clientHeight: ${clientHeight};<br/>scrollTop:${scrollTop};`;
     if (tru && clientHeight + DOMTop.offsetTop + DOMTop.clientHeight < clientHeight + scrollTop) {
       console.log('发现元素')
