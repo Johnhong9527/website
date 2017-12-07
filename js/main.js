@@ -5,7 +5,9 @@ function init() {
   document.addEventListener('scroll', function () {
     var clientHeight = document.documentElement.clientHeight;
     var scrollTop = document.documentElement.scrollTop;
-    console.log(clientHeight + DOMTop.offsetTop + DOMTop.clientHeight < clientHeight + scrollTop)
+    setTimeout(function () {
+      alert(clientHeight + DOMTop.offsetTop + DOMTop.clientHeight+ '----'+ clientHeight + scrollTop)
+    },2000);
     if (tru && clientHeight + DOMTop.offsetTop + DOMTop.clientHeight < clientHeight + scrollTop) {
       console.log('发现元素')
       DOMTop.setAttribute('class', 'page-nav top');
