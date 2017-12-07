@@ -1,8 +1,9 @@
 function init() {
-  alert('123');
+
   var tru = true;
   var DOMTop = document.getElementById('nav');
   document.addEventListener('scroll', function () {
+    alert(6);
     var clientHeight = document.documentElement.clientHeight;
     var scrollTop = document.documentElement.scrollTop;
     if (tru && clientHeight + DOMTop.offsetTop + DOMTop.clientHeight < clientHeight + scrollTop) {
