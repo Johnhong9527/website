@@ -216,6 +216,9 @@ background: rgba(0, 0, 0, 0.1);
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
   padding: 15px 0;
   /*transition: all .3s linear;*/
@@ -319,14 +322,25 @@ section {
 
 section .container {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
 section .container .title {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
@@ -346,6 +360,7 @@ section .container .title strong:before {
   left: 30px;
   top: 50%;
   width: 0;
+  -webkit-transition: all .3s ease .2s;
   transition: all .3s ease .2s;
   border-bottom: 2px solid white;
   position: absolute;
@@ -387,6 +402,8 @@ section .container .row-content {
   text-decoration: none;
   color: white;
   text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   display: block;
   position: relative;
@@ -401,5 +418,6 @@ section .container .row-content {
   height: auto;
   text-align: center;
   top: calc(-70% - 15px);
+  -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
