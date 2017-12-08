@@ -264,7 +264,7 @@ background: rgba(0, 0, 0, 0.1);
   height: 0;
 }
 
-.page-nav .animation-top a{
+.page-nav .animation-top a {
   padding: 15px 0;
 }
 
@@ -400,9 +400,20 @@ section .container .row-content {
   z-index: 999;
   bottom: 15vh;
   right: 5vw;
+  transition: all .5s ease;
+}
+
+@media (max-width: 750px) {
+  .page-top {
+    display: none;
+    height: 0;
+    opacity: 1;
+    transition: all .5s ease;
+  }
 }
 
 .page-top a {
+  width: 50px;
   text-decoration: none;
   color: white;
   text-align: center;
@@ -416,10 +427,12 @@ section .container .row-content {
 .page-top a:before {
   content: '>';
   position: absolute;
-  font-size: 2rem;
+  font-size: 28px;
   font-weight: 900;
-  width: 100%;
+  width: 35px;
   height: auto;
+  right: 0;
+  left: 5px;
   text-align: center;
   top: calc(-70% - 15px);
   -webkit-transform: rotate(-90deg);

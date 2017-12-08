@@ -52,9 +52,9 @@ function init() {
         scrollToTop($target.offsetTop);
 
         function scrollToTop(scrollDuration) {
-          let scrollTop = null,
-            scrollStep = null,
-            s = 0, y = 0;
+          let scrollTop = null, // 滚动条当前位置
+            scrollStep = null, // 滚动条累加前的位置
+            s = 0; // 关闭计时器的条件 s = 25时
           if (document.body.scrollTop !== 0) {
             scrollTop = document.body.scrollTop
           } else {
@@ -68,7 +68,7 @@ function init() {
           if (Math.abs(scrollTop - scrollDuration) > 21) {
             let scrollInterval = setInterval(function () {
               if (s < 26) {
-                // s 是累加的，所以用来跟 目标位置 & 滚动条位置 的间距， 相乘，获得过渡效果。
+                // s 是累加的，所以用来跟`目标位置 & 滚动条位置`的间距，相乘，获得过渡效果。
                 window.scrollTo(0, scrollStep + (scrollDuration - scrollTop) / 25 * s);
                 s++;
               }
