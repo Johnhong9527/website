@@ -63,7 +63,7 @@ function init() {
     }
   }, 10)
 
-  $('.animation-top').click(function () {
+  $('.animation-top a').click(function () {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       let $target = $(this.hash);
       console.log($(this.hash))
