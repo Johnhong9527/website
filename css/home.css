@@ -207,6 +207,7 @@ background: rgba(0, 0, 0, 0.1);
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  flex-direction: row;
   padding: 15px 0;
   /*transition: all .3s linear;*/
 }
@@ -301,15 +302,28 @@ background: rgba(0, 0, 0, 0.1);
 
 .page-container div {
   line-height: 40px;
-  padding-left: 15px;
+  /*padding-left: 15px;*/
 }
-section .container .title{
+
+section {
+}
+
+section .container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+section .container .title {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
+
 section .container .title strong {
   position: relative;
+  padding-left: 15px;
   display: inline-block;
   font-weight: 600;
   color: white;
@@ -327,19 +341,20 @@ section .container .title strong:before {
   border-bottom: 2px solid white;
   position: absolute;
 }
-section .container .title strong.animate-in:before{
+
+section .container .title strong.animate-in:before {
   width: 60px;
 }
 
-section .container .title h1{
+section .container .title h1 {
   color: white;
 }
 
-section .container .row-content{
+section .container .row-content {
   width: 100%;
   height: 70vh;
+  background-color: #979797;
 }
-
 
 /*debug*/
 #cLog {
@@ -349,4 +364,33 @@ section .container .row-content{
   z-index: 999;
   top: 15%;
   display: none;
+}
+
+/*返回顶部*/
+.page-top {
+  position: fixed;
+  z-index: 999;
+  bottom: 15vh;
+  right: 5vw;
+}
+
+.page-top a {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  display: block;
+  position: relative;
+}
+
+.page-top a:before {
+  content: '>';
+  position: absolute;
+  font-size: 50px;
+  font-weight: 900;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  top: calc(-100% - 30px);
+  transform: rotate(-90deg);
 }
