@@ -50,10 +50,11 @@ function init() {
       aTag[i].addEventListener('click', function () {
         var $target = document.getElementById(this.hash.slice(1));
         scrollToTop($target.offsetTop);
+
         function scrollToTop(scrollDuration) {
           let scrollTop = null,
             scrollStep = null,
-            s = 0;
+            s = 0, y = 0;
           if (document.body.scrollTop !== 0) {
             scrollTop = document.body.scrollTop
           } else {
