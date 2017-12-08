@@ -93,7 +93,8 @@ section.hero {
   display: table;
   padding: 0;
 }
-section.hero:before{
+
+section.hero:before {
   content: "";
   position: absolute;
   z-index: 5;
@@ -394,11 +395,11 @@ section .container .row-content {
 .page-top a:before {
   content: '>';
   position: absolute;
-  font-size: 50px;
+  font-size: 2rem;
   font-weight: 900;
   width: 100%;
   height: auto;
   text-align: center;
-  top: calc(-100% - 30px);
+  top: calc(-70% - 15px);
   transform: rotate(-90deg);
 }
