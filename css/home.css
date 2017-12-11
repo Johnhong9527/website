@@ -354,13 +354,13 @@ section .container .title strong {
   font-weight: 600;
   color: white;
   cursor: pointer;
-  margin-right: 85px;
+    margin-right: 85px;
 }
 
 section .container .title strong:before {
   content: '';
   display: block;
-  left: 30px;
+  left: 40px;
   top: 50%;
   width: 0;
   -webkit-transition: all .3s ease .2s;
