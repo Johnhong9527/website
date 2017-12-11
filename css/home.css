@@ -243,9 +243,9 @@ background: rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
-.page-nav ul li:before {
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
+.page-nav ul li:before, .page-nav ul li.animate-in:before {
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
   content: "";
   width: 0;
   height: 2px;
@@ -255,7 +255,7 @@ background: rgba(0, 0, 0, 0.1);
   left: -5%;
 }
 
-.page-nav ul li:hover:before {
+.page-nav ul li:hover:before, .page-nav ul li.animate-in:before {
   width: 110%;
 }
 
@@ -347,26 +347,32 @@ section .container .title {
   justify-content: flex-start;
 }
 
-section .container .title strong {
+section .container .title strong,section .container .title strong.animate-in {
   position: relative;
   padding-left: 15px;
   display: inline-block;
   font-weight: 600;
   color: white;
   cursor: pointer;
-    margin-right: 85px;
+  transition: all .7s ease .2s;
+  opacity: 0;
+  margin-right: 85px;
 }
 
-section .container .title strong:before {
+section .container .title strong:before,section .container .title strong.animate-in:before {
   content: '';
   display: block;
   left: 40px;
   top: 50%;
   width: 0;
-  -webkit-transition: all .3s ease .2s;
-  transition: all .3s ease .2s;
+  -webkit-transition: all .7s ease .2s;
+  transition: all .7s ease .2s;
   border-bottom: 2px solid white;
   position: absolute;
+}
+
+section .container .title strong.animate-in {
+  opacity: 1;
 }
 
 section .container .title strong.animate-in:before {
@@ -379,7 +385,7 @@ section .container .title h1 {
 
 section .container .row-content {
   width: 100%;
-  height: 70vh;
+  height: 100vh;
   margin-bottom: -70px;
   background-color: rgba(67, 84, 119, 0.7);
 }

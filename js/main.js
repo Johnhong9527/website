@@ -7,15 +7,24 @@ function init() {
     let DOMTop = document.getElementById('nav'), // 获取导航对象
       clientHeight = document.documentElement.clientHeight, // 获取窗口可视区域高度
       tru = true,  // 是否替换类名的依据
+      scrollTop = scrollTopF(),
       clientHeightScrollTop = clientHeight + DOMTop.offsetTop + DOMTop.clientHeight; // 是否替换类名的依据
-    // 监听文档滚动条事件，绑定动画
-    document.addEventListener('scroll', function () {
+    // 获取不同浏览器的滚动条位置
+    function scrollTopF() {
       let scrollTop = null;
       if (document.body.scrollTop !== 0) {
         scrollTop = document.body.scrollTop
       } else {
         scrollTop = document.documentElement.scrollTop
       }
+      return scrollTop
+    }
+
+    // 监听文档滚动条事件，绑定动画
+    document.addEventListener('scroll', function (event) {
+      event.stopPropagation();
+      // 重新赋值滚动条位置
+      scrollTop = scrollTopF();
       if (tru && clientHeightScrollTop < clientHeight + scrollTop) {
         DOMTop.setAttribute('class', 'page-nav top');
         tru = false
@@ -24,7 +33,38 @@ function init() {
         DOMTop.setAttribute('class', 'page-nav');
         tru = true
       }
+      // 标题动画与nav动画，联动
+      titleAndNavAnimate();
     }, false);
+    // 标题动画与nav动画，联动
+    titleAndNavAnimate();
+
+    function titleAndNavAnimate() {
+      /*animate-in*/
+      let animateIn = document.querySelectorAll('.container .title strong'),
+        animationTop = document.querySelectorAll('.page-nav ul li');
+      // 判断标题是否在可视区域。
+      for (let i = 0; i < animateIn.length; i++) {
+        if (scrollTop < animateIn[i].offsetTop && animateIn[i].offsetTop < scrollTop + clientHeight) {
+          animateIn[i].setAttribute('class', 'animate-in');
+        } else {
+          animateIn[i].removeAttribute('class');
+        }
+        // nav联动动画
+        /*
+        滚动条的位置在内容区域内，在滚动条即将超出之后，执行类名切换。
+         */
+        // 获取内容区域的顶部。
+        let sectionTop = animateIn[i].parentNode.parentNode.parentNode.offsetTop;
+        // 获取内容区域的底部。
+        let sectionBottom = animateIn[i].parentNode.parentNode.parentNode.clientHeight + sectionTop;
+        if (scrollTop > sectionTop - clientHeight/3 && sectionBottom > scrollTop + clientHeight/3 ) {
+          animationTop[i].setAttribute('class', 'animate-in');
+        } else {
+          animationTop[i].removeAttribute('class');
+        }
+      }
+    }
   }
 
 
@@ -80,31 +120,6 @@ function init() {
           }
         }
       }, false);
-    }
-  }
-
-
-  // 异步执行文章标题的动画
-  animateIn();
-
-  function animateIn() {
-    let animateIn = document.querySelectorAll('.container .title strong');
-    // console.log(animateIn.getAttribute('class'))
-    // console.log(animateIn)
-    let that = null;
-    for (let i = 0; i < animateIn.length; i++) {
-      animateIn[i].addEventListener('click', function () {
-        if (that !== null) {
-          that.removeAttribute('class');
-          if (that === this) {
-            this.removeAttribute('class');
-            that = null;
-            return;
-          }
-        }
-        this.setAttribute('class', 'animate-in');
-        that = this;
-      })
     }
   }
 
