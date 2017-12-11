@@ -1,11 +1,12 @@
 function init() {
-  // 导航条动画,初始化
+  // 导航条联动动画,初始化
   navAnimation();
 
   // 导航条动画，设定
   function navAnimation() {
     let DOMTop = document.getElementById('nav'), // 获取导航对象
       clientHeight = document.documentElement.clientHeight, // 获取窗口可视区域高度
+      clientWidth = document.documentElement.clientWidth, // 获取窗口可视区域宽度
       tru = true,  // 是否替换类名的依据
       scrollTop = scrollTopF(),
       clientHeightScrollTop = clientHeight + DOMTop.offsetTop + DOMTop.clientHeight; // 是否替换类名的依据
@@ -35,6 +36,8 @@ function init() {
       }
       // 标题动画与nav动画，联动
       titleAndNavAnimate();
+      // 返回顶部事件处理
+      hideTop();
     }, false);
     // 标题动画与nav动画，联动
     titleAndNavAnimate();
@@ -58,11 +61,23 @@ function init() {
         let sectionTop = animateIn[i].parentNode.parentNode.parentNode.offsetTop;
         // 获取内容区域的底部。
         let sectionBottom = animateIn[i].parentNode.parentNode.parentNode.clientHeight + sectionTop;
-        if (scrollTop > sectionTop - clientHeight/3 && sectionBottom > scrollTop + clientHeight/3 ) {
-          animationTop[i].setAttribute('class', 'animate-in');
+        if (scrollTop > sectionTop - clientHeight / 3 && sectionBottom > scrollTop + clientHeight / 3) {
+          animationTop[i].setAttribute('class', 'animate-in animation-top');
         } else {
-          animationTop[i].removeAttribute('class');
+          animationTop[i].setAttribute('class', 'animation-top');
         }
+      }
+    }
+
+    // 导航条滚动一定位置时，显示返回顶部按钮
+    hideTop();
+
+    function hideTop() {
+      let pageTop = document.querySelector('.page-top.animation-top');
+      if (scrollTop < clientHeight && clientWidth > 750) {
+        pageTop.style.display = 'none'
+      } else {
+        pageTop.style.display = 'block'
       }
     }
   }
