@@ -161,10 +161,11 @@ function init() {
     var request = new XMLHttpRequest();
     // var name = '?name=seamong';
     request.open('GET', 'http://api.ycoco.xyz/form', true);
-    request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    request.setRequestHeader("Access-Control-Allow-Origin","http://api.ycoco.xyz");
+    // request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    // request.setRequestHeader('Access-Control-Allow-Origin:*');
     request.send(null);
     request.onreadystatechange = function () {
+      console.log(request.response);
       if (request.readyState === 4) {
         if (request.status === 200) {
           console.log(JSON.parse(request.response));
