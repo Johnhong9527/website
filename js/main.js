@@ -163,11 +163,11 @@ function init() {
     request.open('POST', 'http://api.ycoco.xyz/date', true);
     request.send(null);
     request.onreadystatechange = function () {
-      console.log(request.response);
       if (request.readyState === 4) {
         if (request.status === 200) {
-          console.log(JSON.parse(request.response));
-          // document.getElementById('newContent').innerHTML = `<h1>${JSON.parse(request.response)[0].name}</h1>`;
+          console.log(request);
+          // console.log(JSON.parse(request.response));
+          document.getElementById('newContent').innerHTML = `<h1>${JSON.parse(request.response)[0].name}</h1>`;
           return;
         } else {
           console.log('请求失败!');
