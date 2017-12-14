@@ -160,7 +160,7 @@ function init() {
     event.stopPropagation();
     var request = new XMLHttpRequest();
     // var name = '?name=seamong';
-    request.open('GET', 'http://api.ycoco.xyz/date', true);
+    request.open('POST', 'http://api.ycoco.xyz/date', true);
     request.send(null);
     request.onreadystatechange = function () {
       console.log(request.response);
