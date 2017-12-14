@@ -1,7 +1,6 @@
 function init() {
   // 导航条联动动画,初始化
   navAnimation();
-
   // 导航条动画，设定
   function navAnimation() {
     let DOMTop = document.getElementById('nav'), // 获取导航对象
@@ -20,7 +19,6 @@ function init() {
       }
       return scrollTop
     }
-
     // 监听文档滚动条事件，绑定动画
     document.addEventListener('scroll', function (event) {
       event.stopPropagation();
@@ -41,7 +39,6 @@ function init() {
     }, false);
     // 标题动画与nav动画，联动
     titleAndNavAnimate();
-
     function titleAndNavAnimate() {
       /*animate-in*/
       let animateIn = document.querySelectorAll('.container .title strong'),
@@ -68,10 +65,8 @@ function init() {
         }
       }
     }
-
     // 导航条滚动一定位置时，显示返回顶部按钮
     hideTop();
-
     function hideTop() {
       let pageTop = document.querySelector('.page-top.animation-top');
       if (scrollTop < clientHeight && clientWidth > 750) {
@@ -81,8 +76,6 @@ function init() {
       }
     }
   }
-
-
   /*
   # 锚链接跳转过度
   条件：
@@ -98,14 +91,12 @@ function init() {
     6.程序执行完毕之后，用clearInterval()方法清除定时器。
    */
   anchorLinkJumpTransition();
-
   function anchorLinkJumpTransition() {
     let aTag = document.querySelectorAll('.animation-top a');
     for (let i = 0; i < aTag.length; i++) {
       aTag[i].addEventListener('click', function () {
         var $target = document.getElementById(this.hash.slice(1));
         scrollToTop($target.offsetTop);
-
         function scrollToTop(scrollDuration) {
           let scrollTop = null, // 滚动条当前位置
             scrollStep = null, // 滚动条累加前的位置
@@ -137,7 +128,6 @@ function init() {
       }, false);
     }
   }
-
   // deBug
   let deBug = false;
   deBugF(deBug);
@@ -155,7 +145,6 @@ function init() {
     /*debug*/
     // cLog.innerHTML
   }
-
   document.getElementById('btnAjax').addEventListener('click', function (event) {
     event.stopPropagation();
     var request = new XMLHttpRequest();
@@ -165,8 +154,8 @@ function init() {
     request.onreadystatechange = function () {
       if (request.readyState === 4) {
         if (request.status === 200) {
-          console.log(request);
-          // console.log(JSON.parse(request.response));
+          // console.log(request);
+          console.log(JSON.parse(request.response));
           document.getElementById('newContent').innerHTML = `<h1>${JSON.parse(request.response)[0].name}</h1>`;
           return;
         } else {
@@ -176,6 +165,4 @@ function init() {
     }
   }, false);
 }
-
-
 window.onload = init;
