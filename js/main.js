@@ -162,7 +162,7 @@ function init() {
     // var name = '?name=seamong';
     request.open('GET', 'http://api.ycoco.xyz/form', true);
     request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    request.setRequestHeader("*","Access-Control-Allow-Origin");
+    request.setRequestHeader("http://api.ycoco.xyz","Access-Control-Allow-Origin");
     request.send(null);
     request.onreadystatechange = function () {
       if (request.readyState === 4) {
