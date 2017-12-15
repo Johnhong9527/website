@@ -149,14 +149,14 @@ function init() {
     event.stopPropagation();
     var request = new XMLHttpRequest();
     // var name = '?name=seamong';
-    request.open('POST', 'http://api.ycoco.xyz/date', true);
+    request.open('GET', 'http://127.0.0.1:3000/form', true);
     request.send(null);
     request.onreadystatechange = function () {
       if (request.readyState === 4) {
         if (request.status === 200) {
           // console.log(request);
           console.log(JSON.parse(request.response));
-          document.getElementById('newContent').innerHTML = `<h1>${JSON.parse(request.response)[0].name}</h1>`;
+          // document.getElementById('newContent').innerHTML = `<h1>${JSON.parse(request.response)[0].name}</h1>`;
           return;
         } else {
           console.log('请求失败!');
